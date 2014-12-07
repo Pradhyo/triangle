@@ -7,9 +7,7 @@ with open('sample.txt') as fp:
 		if len(x) > 1:
 			if int(x[offset]) < int(x[offset+1]):
 				offset = offset + 1
-			total = total + int(x[offset])
-		else:
-			total = total + int(x[offset])
+		total = total + int(x[offset])
 print total
 
 	
