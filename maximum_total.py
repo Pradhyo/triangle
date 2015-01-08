@@ -4,13 +4,14 @@ values = []
 
 def max(row,column):
 	if row == len(values)-1:
-		return values[row][column]
+		x = values[row][column]
 	elif max(row+1,column) > max(row+1,column+1):
-		return values[row][column]+max(row+1,column)
+		x = values[row][column]+max(row+1,column)
 	else:
-		return values[row][column] + max(row+1,column+1)
+		x = values[row][column] + max(row+1,column+1)
+	return x
 
-with open('sample.txt') as fp:
+with open('triangle.txt') as fp:
 	for line in fp:
 		x = line.split()
 		x = map (int,x)
