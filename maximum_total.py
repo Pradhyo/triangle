@@ -9,13 +9,12 @@ def max_total(row,column):
 		return mem_max[row][column]
 	else:
 		if row == len(values)-1:
-			x = values[row][column]
-		elif max_total(row+1,column) > max_total(row+1,column+1):
-			x = values[row][column] + max_total(row+1,column)
+			mem_max[row][column] = values[row][column]
 		else:
-			x = values[row][column] + max_total(row+1,column+1)
-		mem_max[row][column] = x
-		return x
+			mem_max[row][column] = values[row][column] + max(max_total(row+1,column),max_total(row+1,column+1))
+		
+		return mem_max[row][column]
+		
 
 with open('triangle.txt') as fp:
 	for line in fp:
