@@ -12,10 +12,8 @@ with open('triangle.txt') as fp:
 
 for row in range(len(values)-1,-1,-1):
 	for column in range(len(values[row])):
-		if row == len(values)-1:
-			mem_max[row][column] = values[row][column]
-		else:
-			mem_max[row][column] = values[row][column] + max(mem_max[row+1][column],mem_max[row+1][column+1])
-
+		mem_max[row][column] = values[row][column]	
+		if row != len(values)-1:
+			mem_max[row][column] += max(mem_max[row+1][column],mem_max[row+1][column+1])
 
 print mem_max[0][0]
